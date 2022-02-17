@@ -5,7 +5,7 @@ import java.util.List;
 import java.io.IOException;
 import java.nio.file.Files;
 
-import org.junit.*;
+import org.junit.*; 
 
 public class MarkdownParseTest {
     @Test
@@ -61,7 +61,29 @@ public class MarkdownParseTest {
         Path fileName = Path.of("test-file6.md");
 	    String contents = Files.readString(fileName);
         assertEquals(List.of(), MarkdownParse.getLinks(contents));
-    }/*
+    }
+    
+    @Test
+    public void getLinksTestFile9() throws IOException{
+        Path fileName = Path.of("test-file9.md");
+	    String contents = Files.readString(fileName);
+        assertEquals(List.of("math18.com"), MarkdownParse.getLinks(contents));
+    }
+    
+    @Test
+    public void getLinksTestFile10() throws IOException{
+        Path fileName = Path.of("test-file10.md");
+	    String contents = Files.readString(fileName);
+        assertEquals(List.of("https://so(meth)ing.com"), MarkdownParse.getLinks(contents));
+    }
+
+    @Test
+    public void getLinksTestFile11() throws IOException{
+        Path fileName = Path.of("test-file11.md");
+	    String contents = Files.readString(fileName);
+        assertEquals(List.of("IAmALink.com"), MarkdownParse.getLinks(contents));
+    }
+    /*
     @Test
     public void getLinksTestFile7() throws IOException{
         Path fileName = Path.of("test-file7.md");
