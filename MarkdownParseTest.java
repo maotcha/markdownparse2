@@ -69,7 +69,8 @@ public class MarkdownParseTest {
 	    String contents = Files.readString(fileName);
         assertEquals(List.of("math18.com"), MarkdownParse.getLinks(contents));
     }
-    
+
+ /*   
     @Test
     public void getLinksTestFile10() throws IOException{
         Path fileName = Path.of("test-file10.md");
@@ -83,6 +84,24 @@ public class MarkdownParseTest {
 	    String contents = Files.readString(fileName);
         assertEquals(List.of("IAmALink.com"), MarkdownParse.getLinks(contents));
     }
+*/
+
+    @Test
+    public void testLabReportTest1() throws IOException {
+        Path fileName = Path.of("lab-report-test-1.md");
+        String contents = Files.readString(fileName);
+        assertEquals(List.of("`google.com", "google.com", 
+            "ucsd.edu"), MarkdownParse.getLinks(contents));
+    }
+
+    @Test
+    public void testLabReportTest2() throws IOException {
+        Path fileName = Path.of("lab-report-test-2.md");
+        String contents = Files.readString(fileName);
+        assertEquals(List.of("a.com", "a.com(())", 
+            "example.com"), MarkdownParse.getLinks(contents));
+    }
+
     /*
     @Test
     public void getLinksTestFile7() throws IOException{
