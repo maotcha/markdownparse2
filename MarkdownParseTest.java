@@ -102,6 +102,13 @@ public class MarkdownParseTest {
             "example.com"), MarkdownParse.getLinks(contents));
     }
 
+    @Test
+    public void testLabReportTest3() throws IOException {
+        Path fileName = Path.of("lab-report-test-3.md");
+        String contents = Files.readString(fileName);
+        assertEquals(List.of("https://ucsd-cse15l-w22.github.io/"), MarkdownParse.getLinks(contents));
+    }
+
     /*
     @Test
     public void getLinksTestFile7() throws IOException{
